@@ -245,16 +245,15 @@ nav{
 
 /* ===== ABOUT ===== */
 .about-wrap{padding-top:76px;}
-.about-top{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 76px);align-items:center;}
-.about-top{display:grid;grid-template-columns:1fr 1fr;height:calc(100vh - 76px);align-items:center;}
-.apc-img{width:100%;height:100%;object-fit:cover;display:none;}
+.about-top{display:grid;grid-template-columns:1fr 1fr;height:calc(100vh - 76px);}
+.about-photo-col{position:relative;overflow:hidden;background:var(--cream2);}
+.apc-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:none;}
 .apc-img.loaded{display:block;}
 .about-ph{width:100%;height:100%;min-height:600px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;cursor:pointer;background:var(--cream2);}
 .about-ph.hidden{display:none;}
 .about-ph:hover .pua-circle{border-color:var(--gold);}
 .apc-grad{position:absolute;right:0;top:0;bottom:0;width:30%;background:linear-gradient(to left,var(--cream),transparent);pointer-events:none;}
-
-.about-text-col{padding:80px 7%;display:flex;flex-direction:column;justify-content:center;align-self:center;background:var(--cream);}
+.about-text-col{padding:60px 7%;display:flex;flex-direction:column;justify-content:center;background:var(--cream);overflow-y:auto;}
 .about-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:5px 14px;margin-bottom:2.5rem;background:rgba(181,136,58,0.05);}
 .about-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:700;line-height:1.05;color:var(--navy);margin-bottom:2.5rem;}
 .about-h1 em{font-style:italic;font-weight:300;color:var(--gold);}
@@ -554,7 +553,7 @@ input[type=file]{display:none;}
     <div class="about-top">
       <div class="about-photo-col">
         <img class="apc-img loaded" id="aboutImg" alt="Cihan Arslan" src="CA2.png">
-       <div class="about-ph hidden" id="aboutPh"
+        <div class="about-ph hidden" id="aboutPh" onclick="up('aboutIn')">
           <div class="pua-circle">📸</div>
           <div class="pua-lbl">Fotoğraf Ekle</div>
         </div>
@@ -564,9 +563,9 @@ input[type=file]{display:none;}
       <div class="about-text-col">
         <span class="about-badge">✦ Hakkımda</span>
         <h1 class="about-h1">Merhaba,<br>ben <em>Cihan.</em></h1>
-      <p class="about-p" style="font-size:1.1rem;color:var(--navy);font-weight:400;letter-spacing:-.2px;">Yazmak; düşünmenin, anlam aramanın ve iz bırakmanın bir yolu benim için.</p>
-      <p class="about-p" style="font-size:.92rem;line-height:1.95;">Bu blogda yaşam deneyimlerimi, seyahat notlarımı, tarih merakımı ve kişisel gözlemlerimi paylaşıyorum. Minimalizm, kültür, üretkenlik ve modern yaşam üzerine düşünmeyi seviyorum.</p>
-      <p class="about-p" style="font-size:.92rem;color:var(--gold);font-weight:400;margin-top:1.8rem;">Bazen bir şehir, bazen eski bir sokak, bazen de tek bir cümle yeni bir hikâyenin başlangıcı olabiliyor.</p>
+        <p class="about-p" style="font-size:1.05rem;color:var(--navy);font-weight:400;">Yazmak; düşünmenin, anlam aramanın ve iz bırakmanın bir yolu benim için.</p>
+        <p class="about-p">Bu blogda yaşam deneyimlerimi, seyahat notlarımı, tarih merakımı ve kişisel gözlemlerimi paylaşıyorum. Minimalizm, kültür, üretkenlik ve modern yaşam üzerine düşünmeyi seviyorum.</p>
+        <p class="about-p" style="color:var(--gold);font-size:.92rem;margin-top:.5rem;">Bazen bir şehir, bazen eski bir sokak, bazen de tek bir cümle yeni bir hikâyenin başlangıcı olabiliyor.</p>
         <div class="about-div"></div>
         <div class="int-lbl">İlgi Alanları</div>
         <div class="ints">
