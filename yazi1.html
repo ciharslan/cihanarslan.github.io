@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonuç Odaklılıktan Süreç Odaklılığa | Cihan Arslan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#faf7f2;--cream2:#f3ede3;--cream3:#ede5d8;
+  --navy:#12243a;--navy2:#1c3454;
+  --gold:#b5883a;--gold2:#d4a853;
+  --white:#ffffff;--gray:#7a7a7a;--gray2:#a8a094;
+  --border:rgba(181,136,58,0.15);--border2:rgba(18,36,58,0.08);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--navy);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:76px;background:rgba(250,247,242,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy);text-decoration:none;}
+.nav-back{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .25s;}
+.nav-back:hover{color:var(--gold);}
+.nav-back::before{content:'←';}
+
+.article-hero{min-height:70vh;padding:140px 6% 5rem;background:var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+.article-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(181,136,58,0.15) 0%,transparent 60%);}
+.article-hero::after{content:'PSİKOLOJİ';position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:14rem;font-weight:700;font-style:italic;color:rgba(255,255,255,0.03);line-height:1;pointer-events:none;}
+.hero-cat{display:inline-flex;align-items:center;gap:.6rem;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:1.5rem;opacity:0;animation:up .8s .1s forwards;}
+.hero-cat::before{content:'';width:20px;height:1px;background:var(--gold);}
+.article-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,4rem);font-weight:700;line-height:1.1;color:var(--white);max-width:750px;margin-bottom:1rem;opacity:0;animation:up .8s .25s forwards;}
+.article-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2vw,1.4rem);font-weight:300;font-style:italic;color:rgba(255,255,255,.4);max-width:600px;margin-bottom:2.5rem;opacity:0;animation:up .8s .4s forwards;}
+.article-meta{display:flex;align-items:center;gap:2rem;font-size:.72rem;letter-spacing:1.5px;color:rgba(255,255,255,.3);opacity:0;animation:up .8s .55s forwards;}
+.meta-author{color:var(--gold2);font-weight:400;}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.2);}
+
+/* ABSTRACT */
+.abstract-section{padding:4rem 6%;background:var(--white);border-bottom:1px solid var(--border2);}
+.abstract-inner{max-width:720px;margin:0 auto;border-left:3px solid var(--gold);padding-left:2rem;}
+.abstract-label{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;}
+.abstract-text{font-size:.93rem;color:var(--gray);line-height:1.95;margin-bottom:1rem;}
+.keywords{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;}
+.kw-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray2);margin-right:.3rem;}
+.kw{padding:3px 12px;border:1px solid var(--border2);font-size:.72rem;color:var(--navy);background:var(--cream);}
+
+/* ARTICLE BODY */
+.article-body{max-width:740px;margin:0 auto;padding:5rem 6%;}
+.section-block{margin-bottom:4rem;}
+.sec-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;font-style:italic;color:rgba(18,36,58,0.06);line-height:1;margin-bottom:-.8rem;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--navy);margin-bottom:1.8rem;line-height:1.2;position:relative;padding-bottom:1rem;}
+.sec-title::after{content:'';position:absolute;bottom:0;left:0;width:36px;height:2px;background:var(--gold);}
+.body-text{font-size:.95rem;color:var(--gray);line-height:2;margin-bottom:1.4rem;}
+.body-text strong{color:var(--navy);font-weight:500;}
+
+/* VISUAL ELEMENTS */
+.quote-block{background:var(--navy);padding:2.5rem 3rem;margin:2.5rem 0;position:relative;overflow:hidden;}
+.quote-block::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:8rem;color:rgba(181,136,58,0.1);position:absolute;top:-2rem;left:2rem;line-height:1;}
+.quote-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.4rem);font-style:italic;font-weight:300;color:var(--white);line-height:1.65;position:relative;z-index:1;margin-bottom:.8rem;}
+.quote-author{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);position:relative;z-index:1;}
+
+.highlight{border-left:3px solid var(--gold);padding:1.2rem 1.5rem;background:rgba(181,136,58,0.05);margin:2rem 0;}
+.highlight p{font-size:.92rem;color:var(--navy);line-height:1.85;font-style:italic;}
+
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);margin:2.5rem 0;}
+.info-card{background:var(--cream);padding:1.8rem 1.5rem;}
+.ic-icon{font-size:1.6rem;margin-bottom:.8rem;}
+.ic-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+.ic-desc{font-size:.82rem;color:var(--gray);line-height:1.7;}
+
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border2);margin:2.5rem 0;}
+.comp-col{padding:2rem;}
+.comp-col.light{background:var(--cream2);}
+.comp-col.dark{background:var(--navy);}
+.comp-label{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--border2);}
+.comp-col.light .comp-label{color:var(--gold);}
+.comp-col.dark .comp-label{color:var(--gold2);border-color:rgba(255,255,255,.08);}
+.comp-item{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.9rem;font-size:.83rem;line-height:1.6;}
+.comp-col.light .comp-item{color:var(--gray);}
+.comp-col.dark .comp-item{color:rgba(255,255,255,.55);}
+.comp-icon{flex-shrink:0;font-size:.8rem;margin-top:.15rem;}
+
+.timeline{margin:2.5rem 0;}
+.tl-item{display:grid;grid-template-columns:12px 1fr;gap:0 1.5rem;margin-bottom:2rem;align-items:start;}
+.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--gold);margin-top:.35rem;position:relative;}
+.tl-dot::after{content:'';position:absolute;top:12px;left:5px;width:1px;height:calc(100% + 2rem);background:var(--border);}
+.tl-item:last-child .tl-dot::after{display:none;}
+.tl-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem;}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:.3rem;}
+.tl-text{font-size:.83rem;color:var(--gray);line-height:1.75;}
+
+/* REFERENCES */
+.references-section{padding:4rem 6%;background:var(--navy);}
+.ref-inner{max-width:740px;margin:0 auto;}
+.ref-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.ref-item{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:.8rem;padding-left:1.5rem;text-indent:-1.5rem;}
+.ref-item em{color:rgba(255,255,255,.6);}
+
+/* FOOTER */
+.article-footer{padding:3rem 6%;background:var(--cream2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--border2);}
+.af-author{display:flex;align-items:center;gap:1rem;}
+.af-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+.af-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);}
+.af-role{font-size:.68rem;letter-spacing:1px;color:var(--gray2);margin-top:.1rem;}
+.af-back{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:3px;transition:all .25s;}
+.af-back:hover{color:var(--gold);border-color:var(--gold);}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.show{opacity:1;transform:translateY(0);}
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:768px){
+  .info-grid,.comparison{grid-template-columns:1fr;}
+  .article-hero,.article-body{padding-left:5%;padding-right:5%;}
+  .abstract-section,.references-section,.article-footer{padding-left:5%;padding-right:5%;}
+  nav{padding:0 5%;}
+  .quote-block{padding:2rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">CA</a>
+  <a class="nav-back" href="index.html">Blog'a Dön</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-cat">Psikoloji & Kişisel Gelişim</div>
+  <h1 class="article-title">Sonuç Odaklılıktan Süreç Odaklılığa</h1>
+  <div class="article-subtitle">Psikolojik Olgunluk ve Modern Kültürde Süreç Algısı</div>
+  <div class="article-meta">
+    <span class="meta-author">Cihan Arslan</span>
+    <div class="meta-dot"></div>
+    <span>Mayıs 2026</span>
+    <div class="meta-dot"></div>
+    <span>8 dk okuma</span>
+  </div>
+</div>
+
+<div class="abstract-section">
+  <div class="abstract-inner">
+    <div class="abstract-label">Özet</div>
+    <p class="abstract-text">Modern toplumda başarı kavramı giderek daha görünür, ölçülebilir ve kısa vadeli çıktılar üzerinden değerlendirilmektedir. Dijital kültürün yaygınlaşması, sosyal medya platformlarının gündelik yaşam üzerindeki etkisinin artması ve performans merkezli yaşam biçimleri; bireylerin süreçten çok sonuca odaklanan bir düşünme biçimine yönelmesine neden olmaktadır. Bu durum, davranışsal tercihlerin yanında bireylerin zaman algısı, sabır kapasitesi ve psikolojik dayanıklılığı üzerinde de etkiler oluşturmaktadır.</p>
+    <p class="abstract-text">Çocukluk döneminde sonuç odaklı düşünme eğilimi gelişimsel açıdan doğal kabul edilse de yetişkinlik döneminde bireyin süreçle kurduğu ilişkinin dönüşmesi beklenmektedir. Bu çalışma, çocukluk dönemindeki sonuç odaklı düşünme biçimi ile yetişkinlikte beklenen süreç odaklı yaklaşım arasındaki farkı psikolojik ve sosyolojik perspektiften incelemektedir. Ayrıca modern dijital kültürün bireylerin süreç algısı, empati kapasitesi ve kişilerarası ilişkileri üzerindeki etkileri değerlendirilmektedir.</p>
+    <div class="keywords">
+      <span class="kw-label">Anahtar Kelimeler:</span>
+      <span class="kw">Süreç Odaklılık</span>
+      <span class="kw">Psikolojik Olgunluk</span>
+      <span class="kw">Gecikmiş Ödül</span>
+      <span class="kw">Performans Toplumu</span>
+      <span class="kw">Dijital Kültür</span>
+      <span class="kw">Dikkat Ekonomisi</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <!-- GİRİŞ -->
+  <div class="section-block reveal">
+    <div class="sec-num">01</div>
+    <h2 class="sec-title">Giriş</h2>
+    <p class="body-text">Modern toplumda başarı kavramı giderek daha fazla <strong>hız, performans ve görünürlük</strong> üzerinden değerlendirilmektedir. Dijital iletişim araçlarının gündelik yaşam üzerindeki etkisinin artması, bireylerin kısa vadeli sonuçlara yönelmesini teşvik eden bir kültürel yapı ortaya çıkarmıştır. Sosyal medya platformları, algoritmik ödül sistemleri ve dikkat ekonomisi; bireylerin davranış biçimlerini, zaman algısını ve süreç yönetimi kapasitesini doğrudan etkilemektedir.</p>
+    <p class="body-text">Çocukluk döneminde sonuç odaklı düşünme biçimi gelişimsel açıdan doğal kabul edilmektedir. Bunun temel nedenlerinden biri, çocukların bilişsel gelişim süreçlerinin henüz soyut düşünme ve uzun vadeli değerlendirme kapasitesine tam olarak ulaşmamış olmasıdır. Buna karşılık yetişkinlik döneminde bireyin süreçle kurduğu ilişkinin dönüşmesi beklenmektedir. <strong>Psikolojik olgunluk</strong>; sabır, öz denetim, gecikmiş ödüle tolerans ve belirsizlik karşısındaki dayanıklılıkla ilişkilendirilmektedir.</p>
+    <p class="body-text">Bu çalışma, süreç odaklı düşünme biçiminin psikolojik olgunlukla ilişkisini incelemeyi ve modern dijital kültürün bireylerin süreç algısı üzerindeki etkilerini değerlendirmeyi amaçlamaktadır.</p>
+  </div>
+
+  <!-- ÇOCUKLUK DÖNEMİ -->
+  <div class="section-block reveal">
+    <div class="sec-num">02</div>
+    <h2 class="sec-title">Çocukluk Döneminde Sonuç Odaklı Düşünme</h2>
+    <p class="body-text">Jean Piaget'nin bilişsel gelişim kuramına göre çocukların düşünme biçimi belirli gelişim evrelerinden geçmektedir. Özellikle erken yaş dönemlerinde düşünce sistemi daha çok <strong>somut, gözlemlenebilir ve kısa vadeli sonuçlar</strong> üzerinden şekillenmektedir. Bu nedenle çocuk için ödül, başarı veya kazanım gibi görünür çıktılar sürecin kendisinden daha belirleyici olabilmektedir.</p>
+    <p class="body-text">Çocukluk döneminde başarı çoğu zaman sonucun niteliği üzerinden değerlendirilmektedir. Başarısızlık ise sürecin tamamını değersizleştiren bir unsur hâline gelebilmektedir. Bunun temel nedenlerinden biri, uzun vadeli değerlendirme becerisi ve soyut zaman algısının henüz tam olarak gelişmemiş olmasıdır.</p>
+    <p class="body-text">Bu durum eğitim süreçlerinde, sosyal ilişkilerde ve davranışsal eğilimlerde de gözlemlenebilmektedir. Çocukların kısa vadeli ödüllere daha duyarlı olması, süreç odaklı düşünme kapasitesinin gelişimsel olarak zaman içinde oluştuğunu göstermektedir.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">0 – 2 Yaş</div>
+          <div class="tl-title">Duyusal-Motor Dönem</div>
+          <div class="tl-text">Anlık deneyimler ve duyusal geri bildirimler aracılığıyla dünya algısı oluşur. Sonuç tamamen anlık ve fizikseldir.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">2 – 7 Yaş</div>
+          <div class="tl-title">İşlem Öncesi Dönem</div>
+          <div class="tl-text">Dil gelişir ancak düşünme hâlâ egosentriktir. Uzun vadeli değerlendirme henüz mümkün değildir.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">7 – 12 Yaş</div>
+          <div class="tl-title">Somut İşlemler Dönemi</div>
+          <div class="tl-text">Mantıksal düşünme gelişmeye başlar. Kısa vadeli nedensellik ilişkileri kurulabilir hale gelir.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div>
+          <div class="tl-label">12+ Yaş</div>
+          <div class="tl-title">Soyut İşlemler Dönemi</div>
+          <div class="tl-text">Soyut düşünme ve uzun vadeli değerlendirme kapasitesi gelişir. Süreç odaklılık mümkün hale gelmeye başlar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GECİKMİŞ ÖDÜL -->
+  <div class="section-block reveal">
+    <div class="sec-num">03</div>
+    <h2 class="sec-title">Gecikmiş Ödül ve Psikolojik Olgunluk</h2>
+    <p class="body-text">Psikolojik olgunluk, bireyin kısa vadeli sonuçların ötesinde uzun vadeli kazanımlara da odaklanabilme kapasitesiyle ilişkilidir. Bu bağlamda Walter Mischel tarafından gerçekleştirilen <strong>"Marshmallow Testi"</strong>, gecikmiş ödül kavramını açıklayan önemli çalışmalardan biri olarak değerlendirilmektedir. Araştırma sonuçları, ödülü erteleyebilen çocukların ilerleyen yaşam dönemlerinde öz denetim, akademik başarı ve stres yönetimi açısından daha güçlü bir yapı geliştirdiklerini göstermektedir.</p>
+    <p class="body-text">Araştırmanın dikkat çekici yönlerinden biri, bireyin bekleme sürecini yönetebilme kapasitesidir. Psikolojik dayanıklılık, sonuca ulaşma isteğinin yanında sonuca kadar geçen sürecin sürdürülebilir biçimde yönetilmesiyle ilişkilidir.</p>
+
+    <div class="quote-block">
+      <p class="quote-text">Ödülü erteleyebilen çocuklar, ilerleyen yaşam dönemlerinde öz denetim, akademik başarı ve stres yönetimi açısından daha güçlü bir yapı geliştirmektedir.</p>
+      <div class="quote-author">Walter Mischel — Marshmallow Testi, 1972</div>
+    </div>
+
+    <p class="body-text">Benzer biçimde Carol Dweck tarafından geliştirilen <strong>"Gelişim Zihniyeti"</strong> yaklaşımı da süreç odaklılığın önemine dikkat çekmektedir. Dweck'e göre sonuca veya doğuştan gelen yeteneklere odaklanan bireyler, başarısızlığı kişisel bir yetersizlik olarak algılamaya daha yatkındır. Öğrenme sürecini, çabayı ve yöntemi önemseyen bireyler ise gelişimi süreklilik taşıyan bir yapı olarak değerlendirebilmektedir.</p>
+    <p class="body-text">Bu yaklaşım, psikolojik olgunlaşmanın bireyin öğrenme süreciyle kurduğu ilişkiyle doğrudan bağlantılı olduğunu göstermektedir.</p>
+
+    <div class="comparison">
+      <div class="comp-col light">
+        <div class="comp-label">Sabit Zihniyet</div>
+        <div class="comp-item"><span class="comp-icon">→</span>Yeteneğin sabit olduğuna inanır</div>
+        <div class="comp-item"><span class="comp-icon">→</span>Başarısızlıktan kaçınır</div>
+        <div class="comp-item"><span class="comp-icon">→</span>Eleştiriyi kişisel tehdit olarak görür</div>
+        <div class="comp-item"><span class="comp-icon">→</span>Başkalarının başarısından rahatsız olur</div>
+        <div class="comp-item"><span class="comp-icon">→</span>Yalnızca sonuç üzerinden değerlendirme yapar</div>
+        <div class="comp-item"><span class="comp-icon">→</span>Çabayı yetersizliğin göstergesi olarak yorumlar</div>
+      </div>
+      <div class="comp-col dark">
+        <div class="comp-label">Gelişim Zihniyeti</div>
+        <div class="comp-item"><span class="comp-icon">✦</span>Yeteneğin geliştirilebileceğine inanır</div>
+        <div class="comp-item"><span class="comp-icon">✦</span>Zorluklardan öğrenir</div>
+        <div class="comp-item"><span class="comp-icon">✦</span>Eleştiriyi gelişim fırsatı olarak değerlendirir</div>
+        <div class="comp-item"><span class="comp-icon">✦</span>Başkalarının başarısından ilham alır</div>
+        <div class="comp-item"><span class="comp-icon">✦</span>Süreci ve çabayı değerli bulur</div>
+        <div class="comp-item"><span class="comp-icon">✦</span>Çabayı ustalığın yolu olarak görür</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODERN KÜLTÜR -->
+  <div class="section-block reveal">
+    <div class="sec-num">04</div>
+    <h2 class="sec-title">Modern Kültürde Hız ve Performans Baskısı</h2>
+    <p class="body-text">Modern dijital kültür, bireylerin süreç algısını doğrudan etkileyen temel dinamiklerden biri hâline gelmiştir. Sosyal medya platformları, kısa süreli ödül mekanizmaları ve sürekli görünür olma baskısı; bireyleri anlık tatminlere yönlendirmektedir. Böylece süreçten çok <strong>sonucun görünürlüğünü ön plana çıkaran</strong> bir kültürel yapı oluşmaktadır.</p>
+    <p class="body-text">Zygmunt Bauman, <strong>"Akışkan Modernite"</strong> kavramıyla modern toplumun kalıcılık ve derinlikten uzaklaşarak hız, geçicilik ve sürekli değişim üzerinden şekillendiğini ifade etmektedir. Bu dönüşüm, bireylerin tüketim alışkanlıklarını, düşünme biçimlerini ve zaman algılarını da etkilemektedir.</p>
+    <p class="body-text">Benzer şekilde Byung-Chul Han, çağdaş toplumu <strong>"performans toplumu"</strong> kavramıyla açıklamaktadır. Han'a göre modern birey, sürekli üretme, görünür olma ve hızlı sonuç alma baskısı altında yaşamaktadır. Bu durum bireyin süreçle kurduğu ilişkinin zayıflamasına neden olabilmektedir.</p>
+    <p class="body-text">Güncel çalışmalar da dijital kültürün dikkat süresi, sabır kapasitesi ve gecikmiş ödül toleransı üzerinde etkili olduğunu göstermektedir. Dikkat ekonomisi üzerine yapılan araştırmalar, bireylerin kısa süreli ödül mekanizmalarına daha duyarlı hâle geldiğini ortaya koymaktadır.</p>
+
+    <div class="highlight">
+      <p>Sosyal medya platformları ve algoritmik ödül sistemleri, bireylerin davranış biçimlerini, zaman algısını ve süreç yönetimi kapasitesini doğrudan etkilemekte; bireyleri anlık tatminlere yönlendiren bir kültürel yapı oluşturmaktadır.</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ic-icon">🌊</div>
+        <div class="ic-label">Akışkan Modernite</div>
+        <div class="ic-desc">Bauman: Kalıcılık ve derinliğin yerini hız ve geçicilik almaktadır. Bireyler uzun vadeli bağlılıklardan kaçınır hale gelmektedir.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">⚡</div>
+        <div class="ic-label">Performans Toplumu</div>
+        <div class="ic-desc">Han: Modern birey sürekli üretme, görünür olma ve hızlı sonuç alma baskısı altında yaşamaktadır.</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">🎯</div>
+        <div class="ic-label">Dikkat Ekonomisi</div>
+        <div class="ic-desc">Algoritmik sistemler anlık tatmini ödüllendirerek sabır kapasitesini ve uzun vadeli odaklanmayı aşındırmaktadır.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- İLİŞKİSEL BOYUT -->
+  <div class="section-block reveal">
+    <div class="sec-num">05</div>
+    <h2 class="sec-title">Sonuç Odaklılığın İlişkisel ve Etik Boyutu</h2>
+    <p class="body-text">Sonuç odaklı düşünme biçimi, bireyin zaman algısını ve süreç yönetimini etkilediği gibi <strong>kişilerarası ilişkiler üzerinde</strong> de belirgin sonuçlar doğurmaktadır. Performans merkezli modern yaşam biçimi, bireyleri hedefe ulaşmayı önceleyen davranış modellerine yöneltebilmektedir. Bu durum süreç içerisinde diğer bireylerin duygularının, ihtiyaçlarının ve psikolojik sınırlarının ikincil plana itilmesine yol açabilmektedir.</p>
+    <p class="body-text">Modern performans kültüründe başarı çoğu zaman bireysel çıktı üzerinden değerlendirildiği için, hedefe ulaşma sürecinin etik boyutu geri planda kalabilmektedir. Böyle bir yaklaşım, bireyin kendi hedeflerine odaklanan <strong>araçsal bir düşünme biçimi</strong> geliştirmesine neden olabilmektedir.</p>
+    <p class="body-text">Byung-Chul Han'ın performans toplumu yaklaşımı, bireyin kendisini sürekli üretmek ve başarmak zorunda hissettiği bir düzene işaret etmektedir. Bu yapı, bireyin hem kendisiyle hem de diğer insanlarla kurduğu ilişkiyi dönüştürmektedir. Sürekli performans üretme baskısı altında bulunan birey, zamanla empati, duygusal farkındalık ve ilişkisel sorumluluk gibi unsurları geri plana itebilmektedir.</p>
+    <p class="body-text">Güncel çalışmalar, dijital kültürün empati kapasitesi ve kişilerarası duyarlılık üzerinde etkili olduğunu göstermektedir. Sosyal medya ortamlarında hız, görünürlük ve etkileşim odaklı iletişim biçimleri; bireylerin diğer insanların duygusal gerçekliklerine yönelik dikkatini azaltabilmektedir.</p>
+
+    <div class="quote-block">
+      <p class="quote-text">Psikolojik olgunluk, bireyin hedeflerine ilerlerken diğer insanların duygusal gerçekliğini dikkate alabilmesiyle ilişkilidir. Süreç odaklılık; zaman yönetimi, öz denetim, etik farkındalık, empati ve ilişkisel sorumluluk boyutlarını içermektedir.</p>
+      <div class="quote-author">Cihan Arslan</div>
+    </div>
+
+    <p class="body-text">Bu bağlamda psikolojik olgunluk, bireyin hedeflerine ilerlerken diğer insanların duygusal gerçekliğini dikkate alabilmesiyle ilişkilidir. Süreç odaklılık; zaman yönetimi, öz denetim, etik farkındalık, empati ve ilişkisel sorumluluk boyutlarını içermektedir.</p>
+  </div>
+
+  <!-- SONUÇ -->
+  <div class="section-block reveal">
+    <div class="sec-num">06</div>
+    <h2 class="sec-title">Sonuç</h2>
+    <p class="body-text">Çocukluk döneminde sonuç odaklı düşünme biçimi gelişimsel açıdan doğal kabul edilebilir. Ancak yetişkinlik, bireyin süreçle kurduğu ilişkinin dönüşmesiyle anlam kazanmaktadır. <strong>Psikolojik olgunluk</strong>; sabır, öz denetim, belirsizlik toleransı ve süreç yönetimiyle kurulan ilişkiyle bağlantılıdır.</p>
+    <p class="body-text">Modern dijital kültür bireyleri giderek daha fazla kısa vadeli sonuçlara yönlendirmekte ve süreç odaklı düşünme kapasitesini zayıflatabilmektedir. Süreç odaklılığın bireysel başarı, etik duyarlılık ve kişilerarası ilişkilerle doğrudan bağlantılı olduğu görülmektedir. Süreç içerisinde diğer bireylerin duygularını, sınırlarını ve ihtiyaçlarını dikkate alabilmek; psikolojik olgunluğun önemli bileşenlerinden biri olarak değerlendirilebilir.</p>
+
+    <div class="highlight">
+      <p>Dolayısıyla süreç odaklılık, psikolojik olgunluk, etik farkındalık ve modern yaşam biçimi arasındaki ilişkiyi anlamak açısından önemli bir kavramsal çerçeve sunmaktadır.</p>
+    </div>
+
+    <p class="body-text" style="font-size:.8rem;color:var(--gray2);margin-top:2rem;">* Bölge Müdür Yardımcısı, Vakıf Katılım Bankası. Yüksek Lisans Öğrencisi.</p>
+  </div>
+
+</div>
+
+<div class="references-section">
+  <div class="ref-inner">
+    <div class="ref-title">Kaynakça</div>
+    <p class="ref-item">Bauman, Z. (2024). <em>Akışkan Modernite</em>. İstanbul: Can Yayınları.</p>
+    <p class="ref-item">Dweck, C. (2023). <em>Yeni Başarı Psikolojisi: Gelişim Zihniyeti</em>. İstanbul: Pegasus Yayınları.</p>
+    <p class="ref-item">Haidt, J. (2024). <em>Kaygılı Nesil: Dijital Çağın Çocuklar ve Gençler Üzerindeki Etkileri</em>. İstanbul: Domingo Yayınları.</p>
+    <p class="ref-item">Han, B.-C. (2024). <em>Yorgunluk Toplumu</em>. İstanbul: Açılım Kitap.</p>
+    <p class="ref-item">Kahneman, D. (2022). <em>Hızlı ve Yavaş Düşünme</em>. İstanbul: Varlık Yayınları.</p>
+    <p class="ref-item">Kıylıoğlu, L. (2025). "Türk Üniversite Öğrencilerinde Problemli Sosyal Medya Kullanımını Etkileyen Psikolojik Yapılar". <em>Addicta: The Turkish Journal on Addictions</em>.</p>
+    <p class="ref-item">Mischel, W. (1972). "Cognitive and Attentional Mechanisms in Delay of Gratification". <em>Journal of Personality and Social Psychology</em>, 21(2), 204-218.</p>
+    <p class="ref-item">Newport, C. (2024). <em>Derin Çalışma</em>. İstanbul: Metis Yayınları.</p>
+    <p class="ref-item">Piaget, J. (1952). <em>Çocukta Zekânın Oluşumu</em>. İstanbul: Pinhan Yayıncılık.</p>
+    <p class="ref-item">Tuna, M. F. (2024). "Bilinçli Farkındalık Düzeyinin Dürtüsel Satın Alma Davranışı Üzerindeki Etkisi". <em>Psikoloji Çalışmaları ve Psikolojik Danışmanlık Dergisi</em>.</p>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="af-author">
+    <div class="af-avatar">CA</div>
+    <div>
+      <div class="af-name">Cihan Arslan</div>
+      <div class="af-role">Yazar & Blogger · Bölge Müdür Yardımcısı, Vakıf Katılım Bankası</div>
+    </div>
+  </div>
+  <a class="af-back" href="index.html">← Blog'a Dön</a>
+</div>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
