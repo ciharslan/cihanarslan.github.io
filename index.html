@@ -282,15 +282,37 @@ input[type=file]{display:none;}
   .blog-top-right{display:none;}
 }
 
-/* RESPONSIVE MOBILE */
+/* PAGE TRANSITION */
+.page-transition-overlay{
+  position:fixed;inset:0;z-index:9000;
+  background:var(--navy);
+  transform:translateY(100%);
+  transition:transform .6s cubic-bezier(.76,0,.24,1);
+  pointer-events:none;
+}
+.page-transition-overlay.entering{transform:translateY(0);}
+.page-transition-overlay.leaving{transform:translateY(-100%);}
+
+/* PARALLAX HERO */
+.hero-r{overflow:hidden;}
+.hero-photo{will-change:transform;}
+
+/* MOBILE FIXES */
 @media(max-width:768px){
   .nav-links,.nav-social{display:none;}
   .hamburger{display:flex;}
-  .hero{grid-template-columns:1fr;grid-template-rows:auto 100vw;}
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto;}
   .hero-l{padding:100px 5% 3rem;order:1;}
-  .hero-r{height:100vw;max-height:100vw;order:2;}
-  .hero-photo{object-position:center top;}
-  .photo-badge{bottom:1.5rem;left:1rem;right:1rem;padding:.8rem 1rem;}
+  .hero-r{height:auto;max-height:none;order:2;}
+  .hero-photo{
+    position:relative!important;
+    width:100%!important;height:auto!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    display:block!important;
+  }
+  .photo-overlay-color{display:none;}
+  .photo-badge{bottom:1rem;left:1rem;right:1rem;padding:.8rem 1rem;}
   .pb-name{font-size:1rem;}
   .pb-role{font-size:.6rem;}
   .hero-scroll,.hero-deco-num{display:none;}
@@ -315,6 +337,9 @@ input[type=file]{display:none;}
   .blog-top-right{display:none;}
   .bfilters{padding:1.5rem 5%;}
   .blog-top-left{padding-left:1.2rem;}
+  .pc-img{height:280px!important;}
+  .bc-img{height:220px!important;}
+  .bc-img img,.pc-img img{object-position:center top!important;}
 }
 </style>
 </head>
@@ -535,13 +560,30 @@ document.querySelectorAll('a,button,.bc,.pc,.gi,.sh-right a,.int,.bf').forEach(e
 // Nav scroll shadow
 window.addEventListener('scroll',()=>{
   document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+  parallax();
 });
 
-// Scroll reveal
+// PARALLAX
+function parallax(){
+  const hero=document.querySelector('.hero-photo');
+  if(!hero)return;
+  const scrollY=window.scrollY;
+  const isMobile=window.innerWidth<=768;
+  if(!isMobile){
+    hero.style.transform=`translateY(${scrollY*0.25}px)`;
+  }
+}
+
+// SCROLL REVEAL
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target);}});
-},{threshold:0.15});
+},{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// PAGE TRANSITION OVERLAY
+const overlay=document.createElement('div');
+overlay.className='page-transition-overlay';
+document.body.appendChild(overlay);
 
 // Hamburger
 function toggleMenu(){
@@ -555,26 +597,35 @@ function closeMob(){
   document.body.style.overflow='';
 }
 
-// Page navigation with fade
+// Page navigation with full-screen transition
 function go(id,link){
-  const current=document.querySelector('.page.active');
-  if(current){current.classList.remove('visible');}
+  if(document.getElementById('page-'+id).classList.contains('active'))return;
+
+  // Overlay giriyor
+  overlay.classList.add('entering');
+
   setTimeout(()=>{
-    document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.classList.remove('visible');});
+    // Sayfa değişimi
+    document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active','visible');});
     document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
     const next=document.getElementById('page-'+id);
     next.classList.add('active');
-    setTimeout(()=>{
-      next.classList.add('visible');
-      // re-observe reveal elements
-      next.querySelectorAll('.reveal').forEach(el=>{el.classList.remove('show');observer.observe(el);});
-    },50);
     if(link&&link.classList)link.classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-  },200);
+    window.scrollTo({top:0,behavior:'instant'});
+
+    // Overlay çıkıyor
+    overlay.classList.remove('entering');
+    overlay.classList.add('leaving');
+
+    setTimeout(()=>{
+      overlay.classList.remove('leaving');
+      next.classList.add('visible');
+      next.querySelectorAll('.reveal').forEach(el=>{el.classList.remove('show');observer.observe(el);});
+    },500);
+  },400);
 }
 
-// Init first page visible
+// Init
 setTimeout(()=>document.querySelector('.page.active').classList.add('visible'),50);
 
 // Photo upload
