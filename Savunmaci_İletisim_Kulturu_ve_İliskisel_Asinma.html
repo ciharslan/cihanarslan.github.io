@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savunmacı İletişim Kültürü ve İlişkisel Aşınma | Cihan Arslan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89CEY75TM9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-89CEY75TM9");
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#faf7f2;--cream2:#f3ede3;--cream3:#ede5d8;
+  --navy:#12243a;--navy2:#1c3454;
+  --gold:#b5883a;--gold2:#d4a853;
+  --white:#ffffff;--gray:#7a7a7a;--gray2:#a8a094;
+  --border:rgba(181,136,58,0.15);--border2:rgba(18,36,58,0.08);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--navy);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:76px;background:rgba(250,247,242,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--navy);text-decoration:none;}
+.nav-back{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .25s;}
+.nav-back:hover{color:var(--gold);}
+.nav-back::before{content:'←';}
+
+.article-hero{position:relative;overflow:hidden;display:flex;flex-direction:column;background:var(--navy);padding-top:76px;}
+.hero-cover{width:100%;height:auto;display:block;position:relative;z-index:0;}
+.hero-overlay{position:absolute;bottom:0;left:0;right:0;height:40%;z-index:1;background:linear-gradient(to top,rgba(10,16,28,0.85) 0%,transparent 100%);}
+.hero-content{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:0 7% 3rem;}
+.hero-cat{display:inline-flex;align-items:center;gap:.6rem;font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:1rem;opacity:0;animation:up .8s .1s forwards;}
+.hero-cat::before{content:'';width:20px;height:1px;background:var(--gold);}
+.article-meta{display:flex;align-items:center;gap:1.5rem;font-size:.72rem;letter-spacing:1.5px;color:rgba(255,255,255,.5);opacity:0;animation:up .8s .25s forwards;}
+.meta-author{color:var(--gold2);font-weight:400;}
+.meta-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.3);}
+
+.abstract-section{padding:4rem 7%;background:var(--white);border-bottom:1px solid var(--border2);}
+.abstract-inner{max-width:780px;margin:0 auto;border-left:3px solid var(--gold);padding-left:2rem;}
+.abstract-label{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;}
+.abstract-text{font-size:.93rem;color:var(--gray);line-height:1.95;margin-bottom:1rem;}
+.keywords{margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;}
+.kw-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray2);margin-right:.3rem;}
+.kw{padding:3px 12px;border:1px solid var(--border2);font-size:.72rem;color:var(--navy);background:var(--cream);}
+
+.article-body{width:100%;max-width:820px;margin:0 auto;padding:5rem 6%;}
+.section-block{margin-bottom:4rem;}
+.sec-num{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;font-style:italic;color:rgba(18,36,58,0.06);line-height:1;margin-bottom:-.8rem;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;color:var(--navy);margin-bottom:1.8rem;line-height:1.2;position:relative;padding-bottom:1rem;}
+.sec-title::after{content:'';position:absolute;bottom:0;left:0;width:36px;height:2px;background:var(--gold);}
+.body-text{font-size:1rem;color:var(--gray);line-height:2.1;margin-bottom:1.6rem;width:100%;}
+.body-text strong{color:var(--navy);font-weight:500;}
+
+.quote-block{background:var(--navy);padding:2.5rem 3rem;margin:2.5rem 0;position:relative;overflow:hidden;}
+.quote-block::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:8rem;color:rgba(181,136,58,0.12);position:absolute;top:-2rem;left:2rem;line-height:1;}
+.quote-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,1.8vw,1.4rem);font-style:italic;font-weight:300;color:var(--white);line-height:1.65;position:relative;z-index:1;margin-bottom:.8rem;}
+.quote-author{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);position:relative;z-index:1;}
+
+.highlight{border-left:3px solid var(--gold);padding:1.2rem 1.5rem;background:rgba(181,136,58,0.05);margin:2rem 0;}
+.highlight p{font-size:.95rem;color:var(--navy);line-height:1.85;font-style:italic;}
+
+.section-break{display:flex;align-items:center;gap:1rem;margin:3rem 0;}
+.sb-line{flex:1;height:1px;background:var(--border2);}
+.sb-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.5;}
+
+.references-section{padding:4rem 7%;background:var(--navy);}
+.ref-inner{max-width:820px;margin:0 auto;}
+.ref-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.ref-item{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:.8rem;padding-left:1.5rem;text-indent:-1.5rem;}
+.ref-item em{color:rgba(255,255,255,.6);}
+
+.article-footer{padding:3rem 6%;background:var(--cream2);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--border2);}
+.af-author{display:flex;align-items:center;gap:1rem;}
+.af-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);}
+.af-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--navy);}
+.af-role{font-size:.68rem;letter-spacing:1px;color:var(--gray2);margin-top:.1rem;}
+.af-back{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:3px;transition:all .25s;}
+.af-back:hover{color:var(--gold);border-color:var(--gold);}
+
+.page-transition-overlay{position:fixed;inset:0;z-index:9000;background:var(--navy);transform:translateY(100%);transition:transform .6s cubic-bezier(.76,0,.24,1);pointer-events:none;}
+.page-transition-overlay.entering{transform:translateY(0);}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.show{opacity:1;transform:translateY(0);}
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:768px){
+  nav{padding:0 5%;}
+  .article-footer,.abstract-section,.references-section{padding-left:5%;padding-right:5%;}
+  .article-body{padding:3rem 5%;}
+  .quote-block{padding:2rem 1.5rem;}
+  .hero-content{padding:0 5% 2rem;}
+  .article-hero{padding-top:76px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">CA</a>
+  <a class="nav-back" href="index.html">Blog'a Dön</a>
+</nav>
+
+<div class="article-hero">
+  <img class="hero-cover" src="Savunmaci_İletisim_Kulturu.png" alt="Savunmacı İletişim Kültürü ve İlişkisel Aşınma">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-cat">Akademik · İletişim Psikolojisi</div>
+    <div class="article-meta">
+      <span class="meta-author">Cihan Arslan</span>
+      <div class="meta-dot"></div>
+      <span>Mayıs 2026</span>
+      <div class="meta-dot"></div>
+      <span>9 dk okuma</span>
+    </div>
+  </div>
+</div>
+
+<div class="abstract-section">
+  <div class="abstract-inner">
+    <div class="abstract-label">Özet</div>
+    <p class="abstract-text">Bu çalışma, savunmacı iletişim davranışlarının kişilerarası ilişkiler üzerindeki psikolojik ve sosyolojik etkilerini incelemeyi amaçlamaktadır. İnsan ilişkilerinde iletişimi zayıflatan davranış biçimlerinden biri; bireyin söylenen düşüncelere refleksif biçimde karşı çıkması, karşısındaki kişiyi baştan reddetmesi ve olumlu yönleri göz ardı etmesidir. Bu yaklaşım zaman içerisinde aile ilişkilerinden iş yaşamına kadar geniş bir alanda güven kaybı, iletişim yorgunluğu ve motivasyon düşüşü oluşturmaktadır.</p>
+    <p class="abstract-text">Çalışmada savunmacı iletişim, kronik eleştirellik, iletişim kaygısı, empati kaybı ve takdir eksikliği kavramları psikolojik ve sosyolojik perspektiften ele alınmıştır. Ayrıca dijital iletişim ortamlarının bireylerin iletişim refleksleri üzerindeki etkileri değerlendirilmiştir. Literatürde yer alan güncel çalışmalar, savunmacı iletişim biçimlerinin kişilerarası güveni zayıflattığını, empati kapasitesini düşürdüğünü ve bireyler arasında psikolojik mesafe oluşturduğunu göstermektedir.</p>
+    <div class="keywords">
+      <span class="kw-label">Anahtar Kelimeler:</span>
+      <span class="kw">Savunmacı İletişim</span>
+      <span class="kw">Sürekli Muhalefet</span>
+      <span class="kw">Takdir Eksikliği</span>
+      <span class="kw">İletişim Kaygısı</span>
+      <span class="kw">Tepkisel İletişim</span>
+      <span class="kw">Dijital İletişim Kültürü</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <div class="section-block reveal">
+    <div class="sec-num">01</div>
+    <h2 class="sec-title">Giriş</h2>
+    <p class="body-text">İletişim, bireyler arasındaki sosyal ilişkinin temel belirleyicilerinden biridir. Buna rağmen günümüzde kişilerarası iletişim problemlerinin daha görünür hâle geldiği gözlemlenmektedir. İnsanların birbirini dinlemek yerine hızlı biçimde yargılamaya yönelmesi, düşünceleri anlamaya çalışmak yerine ilk refleks olarak karşı çıkması ve iletişim süreçlerinde savunmacı tutumlar geliştirmesi; sosyal ilişkiler üzerinde yıpratıcı etkiler oluşturmaktadır.</p>
+    <p class="body-text">Carl Rogers'a göre sağlıklı iletişimin temelinde bireyin anlaşılma ve koşulsuz kabul görme ihtiyacı bulunmaktadır (Rogers, 2022). Buna karşılık sürekli eleştirilen, baştan reddedilen veya değersizleştirildiğini hisseden bireylerde psikolojik savunma mekanizmalarının güçlenebildiği belirtilmektedir (Özveren, 2021).</p>
+    <p class="body-text">Marshall Rosenberg, iletişim süreçlerinde yargılayıcı ve suçlayıcı dil kullanımının bireyler arasında görünmez psikolojik duvarlar oluşturduğunu ifade etmektedir (Rosenberg, 2023). Sürekli muhalefet içeren iletişim biçimleri zamanla bireyin kendisini savunma pozisyonunda hissetmesine neden olabilmektedir.</p>
+    <p class="body-text">Son yıllarda dijital iletişim ortamlarının yaygınlaşmasıyla birlikte bireylerin tepki verme biçimlerinde de belirgin değişimler yaşanmaktadır. Özellikle sosyal medya ortamlarında düşüncelerin hızlı biçimde değerlendirilmesi, anında karşılık verme alışkanlığı ve kutuplaştırıcı iletişim biçimleri; savunmacı iletişim davranışlarını güçlendirebilmektedir (Yıldırım ve Turgut, 2024).</p>
+    <p class="body-text">Bu çalışma; savunmacı iletişim davranışlarının psikolojik arka planını, takdir eksikliğinin ilişkiler üzerindeki etkilerini ve dijital iletişim ortamlarının tepkisel iletişim biçimlerini nasıl etkilediğini incelemeyi amaçlamaktadır.</p>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="sec-num">02</div>
+    <h2 class="sec-title">Yöntem</h2>
+    <p class="body-text">Bu çalışma, literatür taramasına dayalı <strong>kuramsal bir değerlendirme makalesidir.</strong> Araştırma kapsamında iletişim psikolojisi, sosyal psikoloji ve dijital iletişim alanlarında yayımlanan güncel Türkçe akademik çalışmalar ile alanın temel kuramsal kaynakları incelenmiştir. Çalışmada savunmacı iletişim, empati, iletişim kaygısı, kronik eleştirellik ve sosyal medya temelli iletişim davranışları kavramsal çerçevede değerlendirilmiştir.</p>
+    <p class="body-text">Makalenin amacı ampirik veri üretmek değil; farklı disiplinlerde ele alınan iletişim problemlerini bütüncül bir yaklaşım içerisinde incelemektir.</p>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="sec-num">03</div>
+    <h2 class="sec-title">Sürekli Muhalefet Eğilimi ve Psikolojik Arka Planı</h2>
+    <p class="body-text">Söylenen her düşünceye refleksif biçimde karşı çıkmak çoğu zaman eleştirel düşünce ile karıştırılmaktadır. Oysa eleştirel düşünce; analiz etmeyi, anlamayı ve değerlendirmeyi içeren zihinsel bir süreçtir. <strong>Sürekli muhalefet eğilimi</strong> ise çoğu durumda düşünceden çok psikolojik savunma refleksi olarak ortaya çıkabilmektedir.</p>
+    <p class="body-text">Paul Watzlawick'e göre iletişim yalnızca sözcüklerden oluşan teknik bir aktarım süreci değildir; bireylerin birbirlerine karşı geliştirdiği psikolojik pozisyonları da içermektedir (Watzlawick vd., 2021). Bu nedenle iletişimde sürekli karşı çıkma davranışı, çoğu zaman içerikten bağımsız biçimde ilişkisel üstünlük kurma çabasına dönüşebilmektedir.</p>
+    <p class="body-text">İletişim psikolojisi alanındaki çalışmalar, savunmacı iletişim biçimlerinin kişilerarası güven üzerinde olumsuz etkiler oluşturduğunu göstermektedir (Özveren, 2021). Sürekli yargılanma hissi yaşayan bireylerin zamanla kendilerini ifade etmekten kaçındıkları ve iletişim süreçlerinden psikolojik olarak geri çekildikleri belirtilmektedir.</p>
+    <p class="body-text">Psikolojik savunma mekanizmaları üzerine yapılan çalışmalarda; inkâr, değersizleştirme, yansıtma ve dışa vurma gibi savunma biçimlerinin yoğun stres ve iletişim baskısı altında daha görünür hâle gelebildiği ifade edilmektedir (Bahadır, 2019). Bu durum bireyin karşısındaki kişiyi anlamaya çalışmaktan çok, kendisini koruma refleksiyle hareket etmesine neden olabilmektedir.</p>
+    <p class="body-text">Daniel Goleman, empati kapasitesi zayıflayan bireylerin iletişim süreçlerinde karşı tarafın duygusal durumunu değerlendirmekte zorlandığını belirtmektedir (Goleman, 2021). Böyle bir durumda iletişim, ortak anlam üretme sürecinden uzaklaşarak psikolojik savunma alanına dönüşebilmektedir.</p>
+    <p class="body-text">Sürekli karşı çıkma davranışı bazı bireylerde psikolojik üstünlük kurma çabasıyla da ilişkilendirilmektedir. İletişimi ortak anlam üretme alanı olarak görmek yerine haklılık mücadelesine dönüştüren yaklaşım, ilişkisel dengeyi zayıflatabilmektedir. Böyle bir iletişim biçiminde kişiler arası anlayış yerine savunma ve karşı savunma döngüsü oluşabilmektedir.</p>
+
+    <div class="quote-block">
+      <p class="quote-text">İletişim yalnızca sözcüklerden oluşan teknik bir aktarım süreci değildir; bireylerin birbirlerine karşı geliştirdiği psikolojik pozisyonları da içermektedir.</p>
+      <div class="quote-author">Paul Watzlawick</div>
+    </div>
+
+    <p class="body-text">Kurumsal iletişim süreçlerinde de benzer sonuçlar görülmektedir. Çalışanın her fikrine itiraz edilmesi, yaptığı işin olumlu yönlerinin göz ardı edilmesi ve iletişimin sürekli hata odaklı ilerlemesi; zamanla motivasyon kaybına neden olabilmektedir.</p>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="sec-num">04</div>
+    <h2 class="sec-title">Takdir Eksikliği ve İlişkisel Yıpranma</h2>
+    <p class="body-text">Takdir görmek, bireyin psikolojik olarak değerli hissetmesini sağlayan temel ihtiyaçlardan biridir. Buna rağmen kişilerarası iletişim süreçlerinde olumlu geri bildirimin giderek azaldığı gözlemlenmektedir.</p>
+    <p class="body-text">İletişim psikolojisi üzerine yapılan çalışmalar, olumlu geri bildirimin bireyin aidiyet hissini güçlendirdiğini ve kişilerarası güveni artırdığını göstermektedir (Yılmaz, 2022). Buna karşılık sürekli eleştiri odaklı iletişim biçimlerinin bireylerde değersizlik hissi oluşturabildiği belirtilmektedir.</p>
+    <p class="body-text">Brené Brown, bireyin sürekli yargılandığı ilişkilerde zamanla kırılganlık göstermekten kaçındığını ifade etmektedir (Brown, 2023). Bu durum bireyin kendisini psikolojik olarak geri çekmesine ve ilişkilerde duygusal mesafe oluşturmasına neden olabilmektedir.</p>
+    <p class="body-text"><strong>Takdir eksikliği</strong> zamanla ilişkilerin mekanikleşmesine neden olabilmektedir. Çünkü insan, emeğinin görülmediği bir ortamda duygusal olarak geri çekilme eğilimi göstermektedir. Sürekli eleştirilen bireyler bir süre sonra düşüncelerini paylaşmaktan kaçınabilmekte ve iletişim süreçleri yüzeysel hâle gelebilmektedir.</p>
+    <p class="body-text">Erving Goffman'a göre bireyler sosyal ilişkilerde belirli bir "benlik sunumu" gerçekleştirmektedir (Goffman, 2022). Sürekli eleştirilen ve değersizleştirildiğini hisseden bireyler zamanla bu sosyal sunumu korumakta zorlanabilmekte ve iletişim süreçlerinde daha savunmacı davranışlar geliştirebilmektedir.</p>
+    <p class="body-text">Bu durum aile ilişkilerinde daha belirgin sonuçlar doğurabilmektedir. Özellikle çocukluk döneminde sürekli eleştirilen bireylerin yetişkinlik döneminde onay ihtiyacını daha yoğun yaşadığı ifade edilmektedir. Kabul ve takdir duygusunun eksikliği, bireyin özgüven gelişimi üzerinde belirgin etkiler oluşturabilmektedir.</p>
+
+    <div class="highlight">
+      <p>Sürekli eleştiri üzerine kurulan iletişim biçimlerinde bireyler zamanla kendilerini ifade etmekten uzaklaşabilmekte ve ilişkisel bağlar zayıflayabilmektedir.</p>
+    </div>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="sec-num">05</div>
+    <h2 class="sec-title">Dijital İletişim Ortamları ve Tepkisel İletişim Biçimleri</h2>
+    <p class="body-text">Dijital iletişim ortamları, bireylerin iletişim kurma biçimlerini önemli ölçüde dönüştürmüştür. Özellikle sosyal medya platformlarında hızlı tepki verme alışkanlığının yaygınlaşması, düşünmeden karşılık üretme eğilimini güçlendirebilmektedir.</p>
+    <p class="body-text">Byung-Chul Han, dijital iletişim ortamlarında bireylerin sürekli tepki üretmeye yönlendirildiğini ve bu durumun düşünsel derinliği zayıflattığını ifade etmektedir (Han, 2024). Sürekli tepki üretme baskısı, bireylerin anlamaya çalışmaktan çok hızlı biçimde karşılık verme eğilimi geliştirmesine neden olabilmektedir.</p>
+    <p class="body-text">Sosyal medya psikolojisi alanındaki çalışmalar, dijital iletişim ortamlarının bireylerde daha sert ve daha savunmacı iletişim davranışları oluşturabildiğini göstermektedir (Özdemir ve Türk, 2019). Özellikle sürekli yorum üretme alışkanlığı ve anlık tepki verme davranışı, iletişimde düşünme süresini azaltabilmektedir.</p>
+    <p class="body-text">Jonathan Haidt, dijital iletişim kültürünün bireylerde kaygı düzeyini artırabildiğini ve sosyal ilişkilerde tahammül kapasitesini zayıflatabildiğini belirtmektedir (Haidt, 2024). Böyle bir iletişim ortamında bireyler, karşı tarafı anlamaya çalışmaktan çok kendi düşüncesini savunmaya odaklanabilmektedir.</p>
+    <p class="body-text">Yoğun dijital iletişim kullanımının empati kapasitesi üzerinde de etkili olduğu belirtilmektedir. Yüz yüze iletişimin azalmasıyla birlikte bireylerin duygusal farkındalık, sabır ve dinleme becerilerinde zayıflama oluşabildiği ifade edilmektedir (Yıldız ve Arslan, 2021).</p>
+    <p class="body-text">Dolayısıyla iletişim problemlerinin önemli bir boyutu, bireylerin birbirini anlamaya çalışmaktan çok hızlı biçimde tepki üretmeye yönelmesidir.</p>
+  </div>
+
+  <div class="section-block reveal">
+    <div class="sec-num">06</div>
+    <h2 class="sec-title">Sonuç ve Değerlendirme</h2>
+    <p class="body-text">Söylenen her düşünceye refleksif biçimde karşı çıkmak, ilk aşamada hiçbir fikri kabul etmemek ve takdir etmekten kaçınmak; zamanla bireyler arasındaki güven duygusunu zedeleyen önemli bir iletişim problemine dönüşmektedir. Bu yaklaşım kısa vadede bireye haklılık hissi verebilse de uzun vadede ilişkilerde iletişim yorgunluğu, psikolojik uzaklaşma ve duygusal kopukluk oluşturmaktadır.</p>
+    <p class="body-text">Sağlıklı iletişim; anlayabilme, dinleyebilme ve karşı tarafın emeğini görebilme becerisiyle gelişmektedir. Sürekli eleştiri üzerine kurulan iletişim biçimlerinde bireyler zamanla kendilerini ifade etmekten uzaklaşabilmekte ve ilişkisel bağlar zayıflayabilmektedir.</p>
+    <p class="body-text">Bu çalışma, savunmacı iletişim davranışlarının bireysel bir karakter özelliğinden çok; psikolojik savunma mekanizmaları, iletişim kaygısı ve dijital iletişim alışkanlıklarıyla ilişkili <strong>çok boyutlu bir yapı</strong> olduğunu ortaya koymaktadır.</p>
+    <p class="body-text">İletişim kalitesinin korunabilmesi için bireylerin eleştirel düşünce ile refleksif karşı çıkma davranışı arasındaki farkı ayırt edebilmesi önem taşımaktadır. Çünkü kişilerarası ilişkilerde sürdürülebilir güven ortamı; sürekli muhalefet üzerinden değil, anlayabilme, empati kurabilme ve ilişkisel dengeyi koruyabilme becerisi üzerinden gelişmektedir.</p>
+
+    <div class="quote-block">
+      <p class="quote-text">Kişilerarası ilişkilerde sürdürülebilir güven ortamı; sürekli muhalefet üzerinden değil, anlayabilme, empati kurabilme ve ilişkisel dengeyi koruyabilme becerisi üzerinden gelişmektedir.</p>
+      <div class="quote-author">Cihan Arslan</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="references-section">
+  <div class="ref-inner">
+    <div class="ref-title">Kaynakça</div>
+    <p class="ref-item">Bahadır, E. (2019). <em>Savunma Mekanizmaları ve Psikolojik Süreçler</em>. İstanbul: Psikoloji Yayınları.</p>
+    <p class="ref-item">Brown, B. (2023). <em>Kusursuz Olmanın Hediyeleri</em>. İstanbul: Pegasus Yayınları.</p>
+    <p class="ref-item">Goffman, E. (2022). <em>Gündelik Yaşamda Benliğin Sunumu</em>. İstanbul: Metis Yayınları.</p>
+    <p class="ref-item">Goleman, D. (2021). <em>Duygusal Zekâ</em>. İstanbul: Varlık Yayınları.</p>
+    <p class="ref-item">Haidt, J. (2024). <em>Kaygılı Nesil</em>. İstanbul: Domingo Yayınları.</p>
+    <p class="ref-item">Han, B.-C. (2024). <em>Yorgunluk Toplumu</em>. İstanbul: Açılım Kitap.</p>
+    <p class="ref-item">Özdemir, Ş. &amp; Türk, G. D. (Ed.). (2019). <em>Sosyal Medya Psikolojisi</em>. İstanbul: Nobel Akademik Yayıncılık.</p>
+    <p class="ref-item">Özveren, C. G. (2021). <em>İletişim Psikolojisi</em>. Ankara: Gazi Kitabevi.</p>
+    <p class="ref-item">Rogers, C. (2022). <em>Kişi Olmaya Dair</em>. İstanbul: Okuyan Us Yayınları.</p>
+    <p class="ref-item">Rosenberg, M. B. (2023). <em>Şiddetsiz İletişim</em>. İstanbul: Remzi Kitabevi.</p>
+    <p class="ref-item">Watzlawick, P., Bavelas, J. B. &amp; Jackson, D. D. (2021). <em>İnsan İletişiminin Pragmatiği</em>. İstanbul: Ketebe Yayınları.</p>
+    <p class="ref-item">Yıldırım, A. &amp; Turgut, R. (2024). "Sosyal Medya, Savunma Mekanizmaları ve Farklılıkları Kabul Etme". <em>Etkileşim Dergisi</em>, 14, 180-219.</p>
+    <p class="ref-item">Yıldız, N. &amp; Arslan, E. (2021). "İletişim Kaygısı ve Sosyal Medya Kullanımı Arasındaki İlişki". <em>İnsan ve Toplum Bilimleri Araştırmaları Dergisi</em>, 10(3), 2145-2168.</p>
+    <p class="ref-item">Yılmaz, M. (Ed.). (2022). <em>İletişim Psikolojisi</em>. Ankara: Nobel Akademik Yayıncılık.</p>
+  </div>
+</div>
+
+<div class="article-footer">
+  <div class="af-author">
+    <div class="af-avatar">CA</div>
+    <div>
+      <div class="af-name">Cihan Arslan</div>
+      <div class="af-role">Yazar & Blogger</div>
+    </div>
+  </div>
+  <a class="af-back" href="index.html">← Blog'a Dön</a>
+</div>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const overlay=document.createElement('div');
+overlay.className='page-transition-overlay';
+document.body.appendChild(overlay);
+document.querySelector('.nav-back').addEventListener('click',function(e){
+  e.preventDefault();
+  overlay.classList.add('entering');
+  setTimeout(()=>{window.location.href=this.href;},400);
+});
+</script>
+</body>
+</html>
